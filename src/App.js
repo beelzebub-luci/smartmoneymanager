@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Button, Row, Col } from 'react-bootstrap';
+import { Container, Button, Row, Col, Nav } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import AppNavbar from './components/AppNavbar';
 import Dashboard from './components/Dashboard';
@@ -7,6 +7,8 @@ import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import CategorySummary from './components/CategorySummary';
 import BudgetForm from './components/BudgetForm';
+import Reports from './components/Reports';
+import BudgetManagement from './components/BudgetManagement';
 import useLocalStorage from './hooks/useLocalStorage';
 import useTheme from './hooks/useTheme';
 import { calculateTotalExpenses } from './utils/helpers';
@@ -18,10 +20,12 @@ function App() {
   const [expenses, setExpenses] = useLocalStorage('expenses', []);
   const [income, setIncome] = useLocalStorage('income', 0);
   const [budget, setBudget] = useLocalStorage('budget', 0);
+  const [categoryBudgets, setCategoryBudgets] = useLocalStorage('categoryBudgets', {});
   
   const [showExpenseForm, setShowExpenseForm] = useState(false);
   const [showBudgetForm, setShowBudgetForm] = useState(false);
   const [expenseToEdit, setExpenseToEdit] = useState(null);
+  const [activeTab, setActiveTab] = useState('dashboard');
 
   const totalExpenses = calculateTotalExpenses(expenses);
 
@@ -63,38 +67,66 @@ function App() {
           budget={budget}
         />
 
-        <div className="d-flex gap-2 mb-4">
-          <Button 
-            variant="primary" 
-            size="lg"
-            onClick={() => setShowExpenseForm(true)}
-          >
-            + {t('buttons.addExpense')}
-          </Button>
-          <Button 
-            variant="success" 
-            size="lg"
-            onClick={() => setShowBudgetForm(true)}
-          >
-            💰 {t('buttons.manageBudget')}
-          </Button>
-        </div>
+        <Nav variant="tabs" activeKey={activeTab} onSelect={(k) => setActiveTab(k)} className="mb-4">
+          <Nav.Item>
+            <Nav.Link eventKey="dashboard">{t('navigation.dashboard')}</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="reports">{t('navigation.reports')}</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="budgetTracking">{t('navigation.budgetTracking')}</Nav.Link>
+          </Nav.Item>
+        </Nav>
 
-        <Row className="g-4">
-          <Col xs={12} lg={8}>
-            <ExpenseList 
-              expenses={expenses}
-              onEdit={openEditForm}
-              onDelete={handleDeleteExpense}
-            />
-          </Col>
-          <Col xs={12} lg={4}>
-            <CategorySummary 
-              expenses={expenses}
-              totalExpenses={totalExpenses}
-            />
-          </Col>
-        </Row>
+        {activeTab === 'dashboard' && (
+          <>
+            <div className="d-flex gap-2 mb-4">
+              <Button 
+                variant="primary" 
+                size="lg"
+                onClick={() => setShowExpenseForm(true)}
+              >
+                + {t('buttons.addExpense')}
+              </Button>
+              <Button 
+                variant="success" 
+                size="lg"
+                onClick={() => setShowBudgetForm(true)}
+              >
+                💰 {t('buttons.manageBudget')}
+              </Button>
+            </div>
+
+            <Row className="g-4">
+              <Col xs={12} lg={8}>
+                <ExpenseList 
+                  expenses={expenses}
+                  onEdit={openEditForm}
+                  onDelete={handleDeleteExpense}
+                />
+              </Col>
+              <Col xs={12} lg={4}>
+                <CategorySummary 
+                  expenses={expenses}
+                  totalExpenses={totalExpenses}
+                />
+              </Col>
+            </Row>
+          </>
+        )}
+
+        {activeTab === 'reports' && (
+          <Reports expenses={expenses} income={income} />
+        )}
+
+        {activeTab === 'budgetTracking' && (
+          <BudgetManagement 
+            expenses={expenses} 
+            budget={budget} 
+            categoryBudgets={categoryBudgets}
+          />
+        )}
 
         <ExpenseForm
           show={showExpenseForm}
@@ -111,6 +143,8 @@ function App() {
           budget={budget}
           updateIncome={setIncome}
           updateBudget={setBudget}
+          categoryBudgets={categoryBudgets}
+          updateCategoryBudgets={setCategoryBudgets}
         />
       </Container>
     </div>

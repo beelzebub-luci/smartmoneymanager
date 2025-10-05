@@ -26,7 +26,13 @@
     "amount": "राशि",
     "amountPlaceholder": "0.00",
     "category": "श्रेणी",
+    "customCategory": "कस्टम श्रेणी",
+    "customCategoryName": "कस्टम श्रेणी का नाम",
+    "customCategoryPlaceholder": "कस्टम श्रेणी का नाम दर्ज करें",
+    "paymentMode": "भुगतान विधि",
     "date": "तारीख",
+    "notes": "टिप्पणियाँ",
+    "notesPlaceholder": "टिप्पणियाँ जोड़ें (वैकल्पिक)",
     "addButton": "खर्च जोड़ें",
     "updateButton": "खर्च अपडेट करें",
     "requiredFields": "कृपया सभी आवश्यक फ़ील्ड भरें"
@@ -36,7 +42,8 @@
     "monthlyIncome": "मासिक आय",
     "monthlyBudget": "मासिक बजट",
     "incomeHelp": "आपकी कुल मासिक आय",
-    "budgetHelp": "महीने के लिए आपका खर्च बजट"
+    "budgetHelp": "महीने के लिए आपका खर्च बजट",
+    "categoryBudgets": "श्रेणी-वार बजट (वैकल्पिक)"
   },
   "expenseList": {
     "title": "खर्च इतिहास",
@@ -57,6 +64,52 @@
     "education": "शिक्षा",
     "travel": "यात्रा",
     "others": "अन्य"
+  },
+  "paymentModes": {
+    "cash": "नकद",
+    "upi": "यूपीआई",
+    "card": "कार्ड",
+    "wallet": "वॉलेट",
+    "onlineTransaction": "ऑनलाइन लेनदेन"
+  },
+  "reports": {
+    "title": "रिपोर्ट और विश्लेषण",
+    "timePeriod": "समय अवधि",
+    "daily": "दैनिक",
+    "weekly": "साप्ताहिक",
+    "monthly": "मासिक",
+    "yearly": "वार्षिक",
+    "category": "श्रेणी",
+    "allCategories": "सभी श्रेणियाँ",
+    "paymentMode": "भुगतान विधि",
+    "allPaymentModes": "सभी भुगतान विधियाँ",
+    "dateFrom": "तिथि से",
+    "dateTo": "तिथि तक",
+    "exportCSV": "CSV निर्यात करें",
+    "expenseByCategory": "श्रेणी के अनुसार खर्च",
+    "incomeVsExpense": "आय बनाम खर्च",
+    "spendingTrends": "खर्च के रुझान",
+    "noData": "चयनित अवधि के लिए कोई डेटा उपलब्ध नहीं है",
+    "income": "आय",
+    "expenses": "खर्च"
+  },
+  "budgetManagement": {
+    "title": "बजट प्रबंधन",
+    "totalBudget": "कुल बजट",
+    "totalSpent": "कुल खर्च",
+    "remaining": "शेष",
+    "overallProgress": "कुल बजट प्रगति",
+    "alert": "चेतावनी",
+    "budgetExceeding": "आपने अपने बजट का 90% या अधिक खर्च कर दिया है!",
+    "categoryWise": "श्रेणी-वार बजट ट्रैकिंग",
+    "nearLimit": "सीमा के पास",
+    "of": "में से",
+    "noExpenses": "अभी तक कोई खर्च दर्ज नहीं किया गया"
+  },
+  "navigation": {
+    "dashboard": "डैशबोर्ड",
+    "reports": "रिपोर्ट",
+    "budgetTracking": "बजट ट्रैकिंग"
   },
   "language": {
     "english": "English",

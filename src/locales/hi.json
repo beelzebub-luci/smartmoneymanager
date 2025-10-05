@@ -1,0 +1,65 @@
+{
+  "appTitle": "स्मार्ट मनी मैनेजर",
+  "navbar": {
+    "dark": "गहरा",
+    "light": "हल्का"
+  },
+  "dashboard": {
+    "totalIncome": "कुल आय",
+    "totalExpenses": "कुल खर्च",
+    "budget": "बजट",
+    "remaining": "शेष"
+  },
+  "buttons": {
+    "addExpense": "खर्च जोड़ें",
+    "manageBudget": "बजट प्रबंधित करें",
+    "update": "अपडेट करें",
+    "cancel": "रद्द करें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं"
+  },
+  "expenseForm": {
+    "title": "खर्च जोड़ें",
+    "editTitle": "खर्च संपादित करें",
+    "description": "विवरण",
+    "descriptionPlaceholder": "विवरण दर्ज करें",
+    "amount": "राशि",
+    "amountPlaceholder": "0.00",
+    "category": "श्रेणी",
+    "date": "तारीख",
+    "addButton": "खर्च जोड़ें",
+    "updateButton": "खर्च अपडेट करें",
+    "requiredFields": "कृपया सभी आवश्यक फ़ील्ड भरें"
+  },
+  "budgetForm": {
+    "title": "आय और बजट प्रबंधित करें",
+    "monthlyIncome": "मासिक आय",
+    "monthlyBudget": "मासिक बजट",
+    "incomeHelp": "आपकी कुल मासिक आय",
+    "budgetHelp": "महीने के लिए आपका खर्च बजट"
+  },
+  "expenseList": {
+    "title": "खर्च इतिहास",
+    "empty": "अभी तक कोई खर्च नहीं जोड़ा गया। शुरू करने के लिए \"खर्च जोड़ें\" पर क्लिक करें!",
+    "deleteConfirm": "क्या आप वाकई इस खर्च को हटाना चाहते हैं?"
+  },
+  "categorySummary": {
+    "title": "श्रेणी के अनुसार खर्च",
+    "empty": "अभी तक वर्गीकृत करने के लिए कोई खर्च नहीं है।"
+  },
+  "categories": {
+    "foodDining": "भोजन और भोजनालय",
+    "shopping": "खरीदारी",
+    "transportation": "परिवहन",
+    "entertainment": "मनोरंजन",
+    "billsUtilities": "बिल और उपयोगिताएं",
+    "healthcare": "स्वास्थ्य सेवा",
+    "education": "शिक्षा",
+    "travel": "यात्रा",
+    "others": "अन्य"
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी"
+  }
+}

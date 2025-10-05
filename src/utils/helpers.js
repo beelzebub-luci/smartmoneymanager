@@ -12,9 +12,9 @@ export const calculateCategoryTotals = (expenses) => {
 };
 
 export const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD'
+    currency: 'INR'
   }).format(amount);
 };
 
@@ -33,3 +33,19 @@ export const CATEGORIES = [
   'Travel',
   'Others'
 ];
+
+// Category key mapping for translations
+export const getCategoryKey = (category) => {
+  const keyMap = {
+    'Food & Dining': 'foodDining',
+    'Shopping': 'shopping',
+    'Transportation': 'transportation',
+    'Entertainment': 'entertainment',
+    'Bills & Utilities': 'billsUtilities',
+    'Healthcare': 'healthcare',
+    'Education': 'education',
+    'Travel': 'travel',
+    'Others': 'others'
+  };
+  return keyMap[category] || 'others';
+};

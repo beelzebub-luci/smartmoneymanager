@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import { CATEGORIES, generateId } from '../utils/helpers';
+import { CATEGORIES, generateId, getCategoryKey } from '../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     id: '',
     description: '',
@@ -37,7 +39,7 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
     e.preventDefault();
     
     if (!formData.description || !formData.amount) {
-      alert('Please fill in all required fields');
+      alert(t('expenseForm.requiredFields'));
       return;
     }
 
@@ -59,30 +61,30 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title>{expenseToEdit ? 'Edit Expense' : 'Add Expense'}</Modal.Title>
+        <Modal.Title>{expenseToEdit ? t('expenseForm.editTitle') : t('expenseForm.title')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Description *</Form.Label>
+            <Form.Label>{t('expenseForm.description')} *</Form.Label>
             <Form.Control
               type="text"
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Enter description"
+              placeholder={t('expenseForm.descriptionPlaceholder')}
               required
             />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Amount *</Form.Label>
+            <Form.Label>{t('expenseForm.amount')} *</Form.Label>
             <Form.Control
               type="number"
               name="amount"
               value={formData.amount}
               onChange={handleChange}
-              placeholder="0.00"
+              placeholder={t('expenseForm.amountPlaceholder')}
               step="0.01"
               min="0"
               required
@@ -90,20 +92,20 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Category</Form.Label>
+            <Form.Label>{t('expenseForm.category')}</Form.Label>
             <Form.Select
               name="category"
               value={formData.category}
               onChange={handleChange}
             >
               {CATEGORIES.map(cat => (
-                <option key={cat} value={cat}>{cat}</option>
+                <option key={cat} value={cat}>{t(`categories.${getCategoryKey(cat)}`)}</option>
               ))}
             </Form.Select>
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Date</Form.Label>
+            <Form.Label>{t('expenseForm.date')}</Form.Label>
             <Form.Control
               type="date"
               name="date"
@@ -114,10 +116,10 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
 
           <div className="d-grid gap-2">
             <Button variant="primary" type="submit">
-              {expenseToEdit ? 'Update Expense' : 'Add Expense'}
+              {expenseToEdit ? t('expenseForm.updateButton') : t('expenseForm.addButton')}
             </Button>
             <Button variant="secondary" onClick={handleClose}>
-              Cancel
+              {t('buttons.cancel')}
             </Button>
           </div>
         </Form>

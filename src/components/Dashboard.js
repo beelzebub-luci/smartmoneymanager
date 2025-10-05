@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import { formatCurrency } from '../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 function Dashboard({ income, totalExpenses, budget }) {
+  const { t } = useTranslation();
   const remaining = income - totalExpenses;
 
   return (
@@ -10,7 +12,7 @@ function Dashboard({ income, totalExpenses, budget }) {
       <Col xs={12} md={6} lg={3}>
         <Card className="text-center shadow-sm h-100">
           <Card.Body>
-            <Card.Title className="text-muted small">Total Income</Card.Title>
+            <Card.Title className="text-muted small">{t('dashboard.totalIncome')}</Card.Title>
             <h3 className="text-success mb-0">{formatCurrency(income)}</h3>
           </Card.Body>
         </Card>
@@ -18,7 +20,7 @@ function Dashboard({ income, totalExpenses, budget }) {
       <Col xs={12} md={6} lg={3}>
         <Card className="text-center shadow-sm h-100">
           <Card.Body>
-            <Card.Title className="text-muted small">Total Expenses</Card.Title>
+            <Card.Title className="text-muted small">{t('dashboard.totalExpenses')}</Card.Title>
             <h3 className="text-danger mb-0">{formatCurrency(totalExpenses)}</h3>
           </Card.Body>
         </Card>
@@ -26,7 +28,7 @@ function Dashboard({ income, totalExpenses, budget }) {
       <Col xs={12} md={6} lg={3}>
         <Card className="text-center shadow-sm h-100">
           <Card.Body>
-            <Card.Title className="text-muted small">Budget</Card.Title>
+            <Card.Title className="text-muted small">{t('dashboard.budget')}</Card.Title>
             <h3 className="text-primary mb-0">{formatCurrency(budget)}</h3>
           </Card.Body>
         </Card>
@@ -34,7 +36,7 @@ function Dashboard({ income, totalExpenses, budget }) {
       <Col xs={12} md={6} lg={3}>
         <Card className="text-center shadow-sm h-100">
           <Card.Body>
-            <Card.Title className="text-muted small">Remaining</Card.Title>
+            <Card.Title className="text-muted small">{t('dashboard.remaining')}</Card.Title>
             <h3 className={remaining >= 0 ? 'text-success mb-0' : 'text-danger mb-0'}>
               {formatCurrency(remaining)}
             </h3>

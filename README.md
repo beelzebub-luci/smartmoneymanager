@@ -9,8 +9,11 @@ A modern, responsive web application for managing your personal finances. Track 
 - **Income & Budget Management**: Set your monthly income and budget to stay on track
 - **Category-wise Spending**: View detailed breakdown of expenses by category
 - **Real-time Dashboard**: Monitor your financial health at a glance
+- **Multi-language Support**: Switch between English and Hindi (हिंदी) with complete UI translation
+- **INR Currency**: Default currency format in Indian Rupees (₹)
 
 ### 🎨 User Experience
+- **Multi-language Interface**: Full support for English and Hindi with easy language switching
 - **Dark/Light Mode**: Toggle between themes with your preference saved in localStorage
 - **Responsive Design**: Mobile-first design that works seamlessly on all devices
 - **Modern UI**: Built with Bootstrap 5 and react-bootstrap components
@@ -19,6 +22,7 @@ A modern, responsive web application for managing your personal finances. Track 
 ### 🛠 Technology Stack
 - **Frontend**: React.js with Functional Components and Hooks (useState, useEffect)
 - **UI Framework**: Bootstrap 5 with react-bootstrap components
+- **Internationalization**: react-i18next for multi-language support
 - **State Management**: React Hooks with localStorage persistence
 - **Design**: Responsive, mobile-first approach
 
@@ -77,12 +81,18 @@ This creates an optimized production build in the `build` folder.
 - Use the theme switch in the navbar to toggle between light and dark modes
 - Your preference is automatically saved and persisted across sessions
 
+### Language Switching
+- Click the language selector (🌐) in the navbar to switch between English and Hindi
+- All UI elements, including categories, buttons, and messages are fully translated
+- Your language preference is automatically saved and persisted across sessions
+- Currency format displays in Indian Rupees (₹) for both languages
+
 ## Project Structure
 
 ```
 src/
 ├── components/          # React components
-│   ├── AppNavbar.js    # Navigation bar with theme toggle
+│   ├── AppNavbar.js    # Navigation bar with theme toggle and language selector
 │   ├── Dashboard.js    # Financial overview dashboard
 │   ├── ExpenseForm.js  # Form for adding/editing expenses
 │   ├── ExpenseList.js  # List of all expenses
@@ -91,8 +101,12 @@ src/
 ├── hooks/              # Custom React hooks
 │   ├── useLocalStorage.js  # Hook for localStorage management
 │   └── useTheme.js     # Hook for theme management
+├── locales/            # Translation files
+│   ├── en.json         # English translations
+│   └── hi.json         # Hindi translations
 ├── utils/              # Utility functions
 │   └── helpers.js      # Helper functions for calculations
+├── i18n.js             # Internationalization configuration
 ├── App.js              # Main application component
 ├── App.css             # Application styles
 ├── index.js            # Application entry point

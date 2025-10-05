@@ -9,6 +9,7 @@ import CategorySummary from './components/CategorySummary';
 import BudgetForm from './components/BudgetForm';
 import Reports from './components/Reports';
 import BudgetManagement from './components/BudgetManagement';
+import ImportExport from './components/ImportExport';
 import useLocalStorage from './hooks/useLocalStorage';
 import useTheme from './hooks/useTheme';
 import { calculateTotalExpenses } from './utils/helpers';
@@ -24,6 +25,7 @@ function App() {
   
   const [showExpenseForm, setShowExpenseForm] = useState(false);
   const [showBudgetForm, setShowBudgetForm] = useState(false);
+  const [showImportExport, setShowImportExport] = useState(false);
   const [expenseToEdit, setExpenseToEdit] = useState(null);
   const [activeTab, setActiveTab] = useState('dashboard');
 
@@ -54,6 +56,10 @@ function App() {
   const handleCloseExpenseForm = () => {
     setShowExpenseForm(false);
     setExpenseToEdit(null);
+  };
+
+  const handleImport = (importedExpenses) => {
+    setExpenses([...expenses, ...importedExpenses]);
   };
 
   return (
@@ -95,6 +101,13 @@ function App() {
                 onClick={() => setShowBudgetForm(true)}
               >
                 💰 {t('buttons.manageBudget')}
+              </Button>
+              <Button 
+                variant="outline-secondary" 
+                size="lg"
+                onClick={() => setShowImportExport(true)}
+              >
+                📊 {t('buttons.importExport')}
               </Button>
             </div>
 
@@ -145,6 +158,13 @@ function App() {
           updateBudget={setBudget}
           categoryBudgets={categoryBudgets}
           updateCategoryBudgets={setCategoryBudgets}
+        />
+
+        <ImportExport
+          show={showImportExport}
+          handleClose={() => setShowImportExport(false)}
+          expenses={expenses}
+          onImport={handleImport}
         />
       </Container>
     </div>

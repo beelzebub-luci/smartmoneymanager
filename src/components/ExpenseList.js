@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, ListGroup, Button, Badge } from 'react-bootstrap';
-import { formatCurrency, getCategoryKey } from '../utils/helpers';
+import { formatCurrency, getCategoryKey, getPaymentModeKey } from '../utils/helpers';
 import { useTranslation } from 'react-i18next';
 
 function ExpenseList({ expenses, onEdit, onDelete }) {
@@ -35,10 +35,22 @@ function ExpenseList({ expenses, onEdit, onDelete }) {
                 <h6 className="mb-0">{expense.description}</h6>
                 <strong className="text-danger">{formatCurrency(expense.amount)}</strong>
               </div>
-              <div className="d-flex gap-2 align-items-center text-muted small">
-                <Badge bg="secondary">{t(`categories.${getCategoryKey(expense.category)}`)}</Badge>
+              <div className="d-flex gap-2 align-items-center text-muted small mb-1">
+                <Badge bg="secondary">
+                  {expense.category === 'Custom' && expense.customCategory 
+                    ? expense.customCategory 
+                    : t(`categories.${getCategoryKey(expense.category)}`)}
+                </Badge>
                 <span>{new Date(expense.date).toLocaleDateString()}</span>
+                {expense.paymentMode && (
+                  <Badge bg="info">{t(`paymentModes.${getPaymentModeKey(expense.paymentMode)}`)}</Badge>
+                )}
               </div>
+              {expense.notes && (
+                <div className="text-muted small" style={{ fontStyle: 'italic' }}>
+                  {expense.notes}
+                </div>
+              )}
             </div>
             <div className="ms-3 d-flex gap-2">
               <Button 

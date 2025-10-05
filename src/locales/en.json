@@ -13,6 +13,7 @@
   "buttons": {
     "addExpense": "Add Expense",
     "manageBudget": "Manage Budget",
+    "importExport": "Import/Export",
     "update": "Update",
     "cancel": "Cancel",
     "edit": "Edit",
@@ -26,7 +27,13 @@
     "amount": "Amount",
     "amountPlaceholder": "0.00",
     "category": "Category",
+    "customCategory": "Custom Category",
+    "customCategoryName": "Custom Category Name",
+    "customCategoryPlaceholder": "Enter custom category name",
+    "paymentMode": "Payment Mode",
     "date": "Date",
+    "notes": "Notes",
+    "notesPlaceholder": "Add notes (optional)",
     "addButton": "Add Expense",
     "updateButton": "Update Expense",
     "requiredFields": "Please fill in all required fields"
@@ -36,7 +43,8 @@
     "monthlyIncome": "Monthly Income",
     "monthlyBudget": "Monthly Budget",
     "incomeHelp": "Your total monthly income",
-    "budgetHelp": "Your spending budget for the month"
+    "budgetHelp": "Your spending budget for the month",
+    "categoryBudgets": "Category-wise Budgets (Optional)"
   },
   "expenseList": {
     "title": "Expense History",
@@ -57,6 +65,62 @@
     "education": "Education",
     "travel": "Travel",
     "others": "Others"
+  },
+  "paymentModes": {
+    "cash": "Cash",
+    "upi": "UPI",
+    "card": "Card",
+    "wallet": "Wallet",
+    "onlineTransaction": "Online Transaction"
+  },
+  "reports": {
+    "title": "Reports & Analytics",
+    "timePeriod": "Time Period",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "paymentMode": "Payment Mode",
+    "allPaymentModes": "All Payment Modes",
+    "dateFrom": "Date From",
+    "dateTo": "Date To",
+    "exportCSV": "Export CSV",
+    "expenseByCategory": "Expense by Category",
+    "incomeVsExpense": "Income vs Expense",
+    "spendingTrends": "Spending Trends",
+    "noData": "No data available for the selected period",
+    "income": "Income",
+    "expenses": "Expenses"
+  },
+  "budgetManagement": {
+    "title": "Budget Management",
+    "totalBudget": "Total Budget",
+    "totalSpent": "Total Spent",
+    "remaining": "Remaining",
+    "overallProgress": "Overall Budget Progress",
+    "alert": "Alert",
+    "budgetExceeding": "You have spent 90% or more of your budget!",
+    "categoryWise": "Category-wise Budget Tracking",
+    "nearLimit": "Near Limit",
+    "of": "of",
+    "noExpenses": "No expenses recorded yet"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "reports": "Reports",
+    "budgetTracking": "Budget Tracking"
+  },
+  "importExport": {
+    "title": "Import / Export Expenses",
+    "export": "Export Your Expenses",
+    "exportCSV": "Export as CSV",
+    "exportExcel": "Export as Excel",
+    "import": "Import Expenses",
+    "importHelp": "Upload a CSV or Excel file to import expenses",
+    "csvFormat": "CSV Format",
+    "importError": "Error importing file. Please check the format and try again."
   },
   "language": {
     "english": "English",

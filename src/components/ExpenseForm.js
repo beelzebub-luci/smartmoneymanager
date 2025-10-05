@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import { CATEGORIES, generateId, getCategoryKey } from '../utils/helpers';
+import { CATEGORIES, PAYMENT_MODES, generateId, getCategoryKey, getPaymentModeKey } from '../utils/helpers';
 import { useTranslation } from 'react-i18next';
 
 function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit }) {
@@ -10,7 +10,10 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
     description: '',
     amount: '',
     category: CATEGORIES[0],
-    date: new Date().toISOString().split('T')[0]
+    date: new Date().toISOString().split('T')[0],
+    notes: '',
+    paymentMode: PAYMENT_MODES[0],
+    customCategory: ''
   });
 
   useEffect(() => {
@@ -22,7 +25,10 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
         description: '',
         amount: '',
         category: CATEGORIES[0],
-        date: new Date().toISOString().split('T')[0]
+        date: new Date().toISOString().split('T')[0],
+        notes: '',
+        paymentMode: PAYMENT_MODES[0],
+        customCategory: ''
       });
     }
   }, [expenseToEdit, show]);
@@ -101,6 +107,33 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
               {CATEGORIES.map(cat => (
                 <option key={cat} value={cat}>{t(`categories.${getCategoryKey(cat)}`)}</option>
               ))}
+              <option value="Custom">{t('expenseForm.customCategory')}</option>
+            </Form.Select>
+          </Form.Group>
+
+          {formData.category === 'Custom' && (
+            <Form.Group className="mb-3">
+              <Form.Label>{t('expenseForm.customCategoryName')}</Form.Label>
+              <Form.Control
+                type="text"
+                name="customCategory"
+                value={formData.customCategory}
+                onChange={handleChange}
+                placeholder={t('expenseForm.customCategoryPlaceholder')}
+              />
+            </Form.Group>
+          )}
+
+          <Form.Group className="mb-3">
+            <Form.Label>{t('expenseForm.paymentMode')}</Form.Label>
+            <Form.Select
+              name="paymentMode"
+              value={formData.paymentMode}
+              onChange={handleChange}
+            >
+              {PAYMENT_MODES.map(mode => (
+                <option key={mode} value={mode}>{t(`paymentModes.${getPaymentModeKey(mode)}`)}</option>
+              ))}
             </Form.Select>
           </Form.Group>
 
@@ -111,6 +144,18 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
               name="date"
               value={formData.date}
               onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>{t('expenseForm.notes')}</Form.Label>
+            <Form.Control
+              as="textarea"
+              name="notes"
+              rows={2}
+              value={formData.notes}
+              onChange={handleChange}
+              placeholder={t('expenseForm.notesPlaceholder')}
             />
           </Form.Group>
 

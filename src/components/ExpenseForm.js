@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import { CATEGORIES, generateId } from '../utils/helpers';
+import { CATEGORIES, generateId, getCategoryKey } from '../utils/helpers';
 import { useTranslation } from 'react-i18next';
 
 function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit }) {
@@ -99,7 +99,7 @@ function ExpenseForm({ show, handleClose, addExpense, editExpense, expenseToEdit
               onChange={handleChange}
             >
               {CATEGORIES.map(cat => (
-                <option key={cat} value={cat}>{cat}</option>
+                <option key={cat} value={cat}>{t(`categories.${getCategoryKey(cat)}`)}</option>
               ))}
             </Form.Select>
           </Form.Group>

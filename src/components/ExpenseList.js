@@ -1,13 +1,22 @@
 import React from 'react';
 import { Card, ListGroup, Button, Badge } from 'react-bootstrap';
-import { formatCurrency } from '../utils/helpers';
+import { formatCurrency, getCategoryKey } from '../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 function ExpenseList({ expenses, onEdit, onDelete }) {
+  const { t } = useTranslation();
+
+  const handleDelete = (id) => {
+    if (window.confirm(t('expenseList.deleteConfirm'))) {
+      onDelete(id);
+    }
+  };
+
   if (expenses.length === 0) {
     return (
       <Card className="shadow-sm">
         <Card.Body className="text-center py-5 text-muted">
-          <p className="mb-0">No expenses added yet. Click "Add Expense" to get started!</p>
+          <p className="mb-0">{t('expenseList.empty')}</p>
         </Card.Body>
       </Card>
     );
@@ -16,7 +25,7 @@ function ExpenseList({ expenses, onEdit, onDelete }) {
   return (
     <Card className="shadow-sm">
       <Card.Header className="bg-primary text-white">
-        <h5 className="mb-0">Expense History</h5>
+        <h5 className="mb-0">{t('expenseList.title')}</h5>
       </Card.Header>
       <ListGroup variant="flush">
         {expenses.map(expense => (
@@ -27,7 +36,7 @@ function ExpenseList({ expenses, onEdit, onDelete }) {
                 <strong className="text-danger">{formatCurrency(expense.amount)}</strong>
               </div>
               <div className="d-flex gap-2 align-items-center text-muted small">
-                <Badge bg="secondary">{expense.category}</Badge>
+                <Badge bg="secondary">{t(`categories.${getCategoryKey(expense.category)}`)}</Badge>
                 <span>{new Date(expense.date).toLocaleDateString()}</span>
               </div>
             </div>
@@ -37,14 +46,14 @@ function ExpenseList({ expenses, onEdit, onDelete }) {
                 size="sm"
                 onClick={() => onEdit(expense)}
               >
-                Edit
+                {t('buttons.edit')}
               </Button>
               <Button 
                 variant="outline-danger" 
                 size="sm"
-                onClick={() => onDelete(expense.id)}
+                onClick={() => handleDelete(expense.id)}
               >
-                Delete
+                {t('buttons.delete')}
               </Button>
             </div>
           </ListGroup.Item>

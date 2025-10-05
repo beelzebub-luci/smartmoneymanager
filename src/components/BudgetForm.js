@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 function BudgetForm({ show, handleClose, income, budget, updateIncome, updateBudget }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     income: income,
     budget: budget
@@ -27,48 +29,48 @@ function BudgetForm({ show, handleClose, income, budget, updateIncome, updateBud
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Manage Income & Budget</Modal.Title>
+        <Modal.Title>{t('budgetForm.title')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Monthly Income</Form.Label>
+            <Form.Label>{t('budgetForm.monthlyIncome')}</Form.Label>
             <Form.Control
               type="number"
               name="income"
               value={formData.income}
               onChange={handleChange}
-              placeholder="0.00"
+              placeholder={t('expenseForm.amountPlaceholder')}
               step="0.01"
               min="0"
             />
             <Form.Text className="text-muted">
-              Your total monthly income
+              {t('budgetForm.incomeHelp')}
             </Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Monthly Budget</Form.Label>
+            <Form.Label>{t('budgetForm.monthlyBudget')}</Form.Label>
             <Form.Control
               type="number"
               name="budget"
               value={formData.budget}
               onChange={handleChange}
-              placeholder="0.00"
+              placeholder={t('expenseForm.amountPlaceholder')}
               step="0.01"
               min="0"
             />
             <Form.Text className="text-muted">
-              Your spending budget for the month
+              {t('budgetForm.budgetHelp')}
             </Form.Text>
           </Form.Group>
 
           <div className="d-grid gap-2">
             <Button variant="primary" type="submit">
-              Update
+              {t('buttons.update')}
             </Button>
             <Button variant="secondary" onClick={handleClose}>
-              Cancel
+              {t('buttons.cancel')}
             </Button>
           </div>
         </Form>

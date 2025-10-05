@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import AppNavbar from './components/AppNavbar';
 import Dashboard from './components/Dashboard';
 import ExpenseForm from './components/ExpenseForm';
@@ -12,6 +13,7 @@ import { calculateTotalExpenses } from './utils/helpers';
 import './App.css';
 
 function App() {
+  const { t } = useTranslation();
   const [theme, toggleTheme] = useTheme();
   const [expenses, setExpenses] = useLocalStorage('expenses', []);
   const [income, setIncome] = useLocalStorage('income', 0);
@@ -67,14 +69,14 @@ function App() {
             size="lg"
             onClick={() => setShowExpenseForm(true)}
           >
-            + Add Expense
+            + {t('buttons.addExpense')}
           </Button>
           <Button 
             variant="success" 
             size="lg"
             onClick={() => setShowBudgetForm(true)}
           >
-            💰 Manage Budget
+            💰 {t('buttons.manageBudget')}
           </Button>
         </div>
 

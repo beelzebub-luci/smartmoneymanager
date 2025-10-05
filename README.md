@@ -60,6 +60,47 @@ npm run build
 
 This creates an optimized production build in the `build` folder.
 
+## Deployment
+
+### Deploying to Vercel
+
+This project is configured for easy deployment to Vercel:
+
+1. **Fork or clone this repository** to your GitHub account
+
+2. **Import to Vercel**:
+   - Go to [Vercel](https://vercel.com)
+   - Click "New Project"
+   - Import your repository
+
+3. **Configure the project** (usually auto-detected):
+   - Framework Preset: `Create React App`
+   - Build Command: `npm run build`
+   - Output Directory: `build`
+
+4. **Deploy**: Click "Deploy" and Vercel will build and deploy your app
+
+The project includes:
+- `.npmrc` file to handle dependency resolution
+- `vercel.json` for proper routing configuration
+- `ajv` as a dev dependency to resolve build issues
+
+### Manual Deployment Steps
+
+If you need to deploy manually:
+
+```bash
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# The build folder is ready to be deployed
+```
+
+You can deploy the `build` folder to any static hosting service like Netlify, GitHub Pages, or traditional web servers.
+
 ## Usage
 
 ### Managing Expenses

